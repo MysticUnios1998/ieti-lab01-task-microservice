@@ -3,6 +3,7 @@ package co.edu.eci.ieti.service.impl;
 import co.edu.eci.ieti.data.Task;
 import co.edu.eci.ieti.service.TaskService;
 import co.edu.eci.ieti.util.IdGenerator;
+import org.apache.commons.lang3.ObjectUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -45,12 +46,20 @@ public class TaskServiceHashMap implements TaskService {
     public Task update(Task task, String id) {
         Task updateableTask = tasks.get(id);
         if (updateableTask != null) {
-            if (!updateableTask.getName().equals(task.getName())) updateableTask.setName(task.getName());
-            if (!updateableTask.getAssignedTo().equals(task.getAssignedTo())) updateableTask.setAssignedTo(task.getAssignedTo());
-            if (!updateableTask.getDescription().equals(task.getDescription())) updateableTask.setDescription(task.getDescription());
-            if (!updateableTask.getCreatedAt().equals(task.getCreatedAt())) updateableTask.setCreatedAt(task.getCreatedAt());
-            if (!updateableTask.getStatus().equals(task.getStatus())) updateableTask.setStatus(task.getStatus());
-            if (!updateableTask.getDueDate().equals(task.getDueDate())) updateableTask.setDueDate(task.getDueDate());
+            try {
+                if (!updateableTask.getName().equals(task.getName())) updateableTask.setName(task.getName());
+                if (!updateableTask.getAssignedTo().equals(task.getAssignedTo()))
+                    updateableTask.setAssignedTo(task.getAssignedTo());
+                if (!updateableTask.getDescription().equals(task.getDescription()))
+                    updateableTask.setDescription(task.getDescription());
+                if (!updateableTask.getCreatedAt().equals(task.getCreatedAt()))
+                    updateableTask.setCreatedAt(task.getCreatedAt());
+                if (!updateableTask.getStatus().equals(task.getStatus())) updateableTask.setStatus(task.getStatus());
+                if (!updateableTask.getDueDate().equals(task.getDueDate()))
+                    updateableTask.setDueDate(task.getDueDate());
+            } catch (NullPointerException nullPtrEx) {
+                updateableTask = null;
+            }
         }
         return updateableTask;
     }

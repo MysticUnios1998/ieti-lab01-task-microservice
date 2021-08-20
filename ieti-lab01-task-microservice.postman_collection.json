@@ -1,0 +1,141 @@
+{
+	"info": {
+		"_postman_id": "91db401f-98f2-420e-a2dc-3b7a10bb95fb",
+		"name": "ieti-lab01-task-microservice",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/api/v1/task/all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/task/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"task",
+						"all"
+					]
+				},
+				"description": "Get all tasks currently in the system"
+			},
+			"response": []
+		},
+		{
+			"name": "/api/v1/task/{id}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/task/123",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"task",
+						"123"
+					]
+				},
+				"description": "Get task specified by id"
+			},
+			"response": []
+		},
+		{
+			"name": "/api/v1/task",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Repairing\",\n    \"description\": \"Fix bugs in the system\",\n    \"status\": \"TODO\",\n    \"assignedTo\": \"Eduard\",\n    \"createdAt\": null,\n    \"dueDate\": null\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/task",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"task"
+					]
+				},
+				"description": "Create new task in the system"
+			},
+			"response": []
+		},
+		{
+			"name": "/api/v1/task/{id}",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Repairing\",\n    \"description\": \"Fix bugs in the system\",\n    \"status\": \"DONE\",\n    \"assignedTo\": \"Carlos Santana\",\n    \"createdAt\": null,\n    \"dueDate\": null\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/task/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"task",
+						""
+					]
+				},
+				"description": "Update existing task with parameters of new task"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/v1/task/2460678813",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/task/2460678813",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"task",
+						"2460678813"
+					]
+				},
+				"description": "Delete existing task in the system by Id"
+			},
+			"response": []
+		}
+	]
+}
